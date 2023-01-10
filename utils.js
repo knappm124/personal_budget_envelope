@@ -9,7 +9,7 @@ const findEnvelope = id => {
     return -1;
 }
 
-const updateEnvelopes = (id, newEnvelope) => {
+const updateEnvelope = (id, newEnvelope) => {
     if(typeof newEnvelope.name != 'string' || newEnvelope.amount <= 0) {
         return Error('Error: Updated envelope must have a valid name and amount')
     }
@@ -43,5 +43,5 @@ const deleteEnvelope = id => {
 }
 
 module.exports = {
-    updateEnvelopes, addEnvelope, deleteEnvelope
+    updateEnvelope, addEnvelope, deleteEnvelope
 };
