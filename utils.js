@@ -22,10 +22,9 @@ const findEnvelope = id => {
 }
 
 const updateEnvelope = (id, newEnvelope) => {
-/*    if(typeof newEnvelope.name != 'string' || newEnvelope.amount <= 0) {
+    if(typeof newEnvelope.name != 'string' || newEnvelope.amount <= 0) {
         return Error('Updated envelope must have a valid name and amount')
     }
-*/
     let index = findEnvelope(id);
     if(index == -1){
         return Error('Id not found');
@@ -36,10 +35,9 @@ const updateEnvelope = (id, newEnvelope) => {
 }
 
 const addEnvelope = newEnvelope => {
-/*    if(typeof newEnvelope.name != 'string' || newEnvelope.amount <= 0) {
+   if(typeof newEnvelope.name != 'string' || newEnvelope.amount <= 0) {
         return Error('New envelope must have a valid name and amount');
     }
-*/
     newEnvelope.id = envelopes.nextId;
     envelopes.array.push(newEnvelope);
     envelopes.nextId += 1;
@@ -68,14 +66,14 @@ const payFromEnvelope = (id, amount) => {
     return envelopes.array[index];
 }
 
-const transfer = (envelope1, envelope2) => {
-    if(envelope1.amount < 0 && envelope2.amount < 0){
+const transfer = (envelope1, envelope2, transferAmount) => {
+    if(transferAmount <= 0){
         return Error('Amount transfered must be greater than zero');
     }
-    let index1 = findEnvelope(envelope1.id);
-    let index2 = findEnvelope(envelope2.id);
-    envelopes.array[index1].amount -= envelope1.amount;
-    envelopes.array[index2].amount += envelope2.amount;
+    let index1 = findEnvelope(envelope1);
+    let index2 = findEnvelope(envelope2);
+    envelopes.array[index1].amount -= transferAmount;
+    envelopes.array[index2].amount += transferAmount;
     return envelopes.array;
 }
 
