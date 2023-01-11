@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-Parser');
 const app = express();
 
 const{ getAllEnvelopes, getEnvelope, updateEnvelope, addEnvelope, deleteEnvelope, payFromEnvelope, transfer } = require('./utils');
@@ -6,6 +7,8 @@ const{ getAllEnvelopes, getEnvelope, updateEnvelope, addEnvelope, deleteEnvelope
 const PORT = process.env.PORT || 3000;
 
 app.use(express.static('public'));
+
+app.use(bodyParser.json());
 
 app.get('/envelopes', (req, res) => {
     let array = getAllEnvelopes();
