@@ -22,9 +22,10 @@ const findEnvelope = id => {
 }
 
 const updateEnvelope = (id, newEnvelope) => {
-    if(typeof newEnvelope.name != 'string' || newEnvelope.amount <= 0) {
+/*    if(typeof newEnvelope.name != 'string' || newEnvelope.amount <= 0) {
         return Error('Updated envelope must have a valid name and amount')
     }
+*/
     let index = findEnvelope(id);
     if(index == -1){
         return Error('Id not found');
@@ -35,9 +36,10 @@ const updateEnvelope = (id, newEnvelope) => {
 }
 
 const addEnvelope = newEnvelope => {
-    if(typeof newEnvelope.name != 'string' || newEnvelope.amount <= 0) {
+/*    if(typeof newEnvelope.name != 'string' || newEnvelope.amount <= 0) {
         return Error('New envelope must have a valid name and amount');
     }
+*/
     newEnvelope.id = envelopes.nextId;
     envelopes.array.push(newEnvelope);
     envelopes.nextId += 1;
