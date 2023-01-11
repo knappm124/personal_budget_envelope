@@ -47,7 +47,7 @@ app.put('/envelopes/pay/:envelopeId', (req, res) => {
     let tempId = req.params.envelopeId;
     console.log(tempId);
     console.log(req.body.payAmount);
-    let result = payFromEnvelope(tempId, req.query.payAmount);
+    let result = payFromEnvelope(tempId, req.body.payAmount);
     if(result instanceof Error){
         res.status(400).send();
     }
@@ -57,7 +57,7 @@ app.put('/envelopes/pay/:envelopeId', (req, res) => {
 app.put('/envelopes/transfer/:fromId/:toId', (req, res) => {
     let fromId = req.params.fromId;
     let toId = req.params.toId;
-    let transferAmount = req.query.transferAmount;
+    let transferAmount = req.body.transferAmount;
     let fromEnvelope = getEnvelope(fromId);
     let toEnvelope = getEnvelope(toId);
     if(fromEnvelope instanceof Error || toEnvelope instanceof Error){
