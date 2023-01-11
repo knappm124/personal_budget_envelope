@@ -22,7 +22,7 @@ app.get('/envelopes/:envelopeId', (req, res) => {
 })
 
 app.post('/envelopes', (req, res) => {
-    let tempEnvelope = req.query.envelope;
+    let tempEnvelope = req.body.envelope;
     let result = addEnvelope(tempEnvelope);
     if(result instanceof Error){
         res.status(400).send();
@@ -31,18 +31,20 @@ app.post('/envelopes', (req, res) => {
     }
 });
 
-app.put('/envelopes/pay/:envelopeId', (req, res) => {
+app.put('/envelopes/:envelopeId', (req, res) => {
     let tempId = req.params.envelopeId;
-    let result = payFromEnvelope(tempId, req.query.payAmount);
+    let result = updateEnvelope(tempId, req.body.envelope);
     if(result instanceof Error){
         res.status(400).send();
     }
     res.status(200).send(result);
 });
 
-app.put('/envelopes/:envelopeId', (req, res) => {
+app.put('/envelopes/pay/:envelopeId', (req, res) => {
     let tempId = req.params.envelopeId;
-    let result = updateEnvelope(tempId, req.query.envelope);
+    console.log(tempId);
+    console.log(req.body.payAmount);
+    let result = payFromEnvelope(tempId, req.query.payAmount);
     if(result instanceof Error){
         res.status(400).send();
     }
