@@ -1,0 +1,15 @@
+{
+    "name": "person-budget-envelopes",
+    "version": "1.0.0",
+    "description": "An API that allows clients to create and manage a personal budget using Envelope Budgeting principles.",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "express": "^4.18.2"
+    }
+  }
+  
