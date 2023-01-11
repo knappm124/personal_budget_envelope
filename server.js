@@ -31,7 +31,7 @@ app.post('/envelopes', (req, res) => {
     }
 });
 
-app.put('/envleopes/pay/:envelopeId', (req, res) => {
+app.put('/envelopes/pay/:envelopeId', (req, res) => {
     let tempId = req.params.envelopeId;
     let result = payFromEnvelope(tempId, req.query.payAmount);
     if(result instanceof Error){
