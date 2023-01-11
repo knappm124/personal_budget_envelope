@@ -22,7 +22,7 @@ app.get('/envelopes/:envelopeId', (req, res) => {
 })
 
 app.post('/envelopes', (req, res) => {
-    let tempEnvelope = req.query;
+    let tempEnvelope = req.query.envelope;
     let result = addEnvelope(tempEnvelope);
     if(result instanceof Error){
         res.status(400).send();

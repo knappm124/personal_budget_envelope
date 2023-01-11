@@ -1,7 +1,7 @@
 {
     "name": "person-budget-envelopes",
     "version": "1.0.0",
-    "description": "An API that allows clients to create and manage a personal budget using Envelope Budgeting principles.",
+    "description": "An API that allows clients to create and manage a personal budget using Envelope Budgeting principles.nod",
     "main": "server.js",
     "scripts": {
         "start": "node server.js"
